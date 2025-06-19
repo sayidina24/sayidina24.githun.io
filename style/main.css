@@ -1,0 +1,592 @@
+/* RESET DASAR */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  background-color: #0062ff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* jarak antara logo dan tulisan */
+}
+
+.logo-title img {
+  width: 70px; /* Sesuaikan ukuran logo */
+  height: auto;
+}
+
+header h1 {
+  color: #005baa;
+  font-size: 28px;
+}
+
+header .info {
+  text-align: right;
+  font-size: 14px;
+  color: #333;
+}
+
+/* NAVIGATION */
+nav {
+  background-color: #005baa;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* MAIN CONTAINER */
+.container {
+  padding: 30px 50px;
+}
+
+/* HEADINGS */
+h2 {
+  color: #005baa;
+  margin-bottom: 10px;
+  border-left: 5px solid #ffe600;
+  padding-left: 10px;
+  font-size: 24px;
+}
+
+.highlight {
+  color: #ffe600;
+}
+
+/* CONTENT SECTION */
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.text, .image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid #005baa;
+}
+
+.image p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #005baa;
+}
+
+/* LISTS */
+ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+/* FOOTER */
+footer {
+  background-color: #f0f0f0;
+  color: #555;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  margin-top: 40px;
+}
+/* START: CSS untuk Layout Halaman Download */
+/* .container di header.php sudah membungkus <main>, jadi kita akan membuat flex di situ */
+.container {
+  padding: 30px 50px; /* Padding utama untuk konten */
+  display: flex; /* Mengaktifkan Flexbox untuk layout 2 kolom */
+  gap: 40px; /* Jarak antara sidebar dan konten utama */
+  align-items: flex-start; /* Mengatur item agar sejajar di bagian atas */
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Ubah ke satu kolom di layar kecil */
+    padding: 20px;
+    gap: 20px;
+  }
+}
+
+/* Sidebar Styling */
+.sidebar {
+  flex: 0 0 280px; /* Lebar tetap untuk sidebar (sesuaikan jika perlu) */
+  /* background-color: #f0f0f0; */ /* Opsional: latar belakang untuk sidebar */
+  padding-right: 20px; /* Jarak ke konten utama */
+}
+
+.sidebar h2 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    border-left: 5px solid #ffe600; /* Border kuning di kiri */
+    padding-left: 10px;
+}
+
+/* Download Item in Sidebar */
+.download-item-wrapper {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.download-item-wrapper.highlighted {
+    border: 2px solid #ffcc00; /* Border kuning untuk item yang disorot */
+}
+
+.download-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.download-item:hover {
+    background-color: #f0f0f0;
+    /* border-left: 5px solid #ffcc00; /* Opsional: border kuning saat hover */
+    /* padding-left: 10px; */ /* Sesuaikan padding agar terlihat pergeseran */
+}
+
+.download-item .icon {
+    flex-shrink: 0;
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.download-item .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.download-item .info {
+    flex-grow: 1;
+}
+
+.download-item .info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    color: #005baa; /* Warna judul file */
+}
+
+.download-item .info p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+/* Content Area Styling */
+.content-area {
+  flex-grow: 1; /* Mengambil sisa ruang yang tersedia */
+  background-color: #fff; /* Latar belakang konten utama */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.breadcrumb {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.breadcrumb a {
+    color: #005baa;
+    text-decoration: none;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+}
+
+/* Styles for "Do you have any questions?" box */
+.questions-box {
+    background-color: #ffcc00; /* Warna kuning */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px; /* Jarak dari elemen di atasnya */
+    color: #333; /* Warna teks */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.questions-box h3 {
+    margin-top: 0;
+    font-size: 1.3em;
+    color: #333; /* Warna judul */
+    margin-bottom: 10px;
+}
+
+.questions-box p {
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* Download list within content-area (if applicable) */
+.download-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+/* Style for individual download items within the main content area if you choose to list them there */
+/* Menggunakan ulang .download-item yang sudah ada, mungkin dengan penyesuaian jika perlu */
+.content-area .download-item {
+    width: calc(50% - 10px); /* 2 item per baris di area konten, sesuaikan jika perlu */
+}
+@media (max-width: 992px) {
+    .content-area .download-item {
+        width: 100%; /* 1 item per baris di layar lebih kecil */
+    }
+}
+/* ... (CSS yang sudah ada di main.css Anda) ... */
+
+/* START: New Styles for Comment Section (Penyesuaian untuk horizontal) */
+.comment-section {
+    margin-top: 50px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.comment-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.comment-header .login-btn {
+    background-color: #005baa;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.comment-header .login-btn:hover {
+    background-color: #004a99;
+}
+
+.comment-input-area {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee; /* Placeholder for avatar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: #888;
+    overflow: hidden;
+}
+
+.comment-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment-form-group {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.comment-textarea {
+    width: 100%;
+    min-height: 100px;
+    border: none;
+    padding: 15px;
+    font-family: inherit;
+    font-size: 1em;
+    resize: vertical;
+    outline: none;
+}
+
+.comment-toolbar {
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    display: flex; /* MENGATUR HORIZONTAL */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Pastikan membungkus ke baris baru jika ruang tidak cukup */
+    gap: 10px; /* Jarak antar grup tombol/elemen */
+}
+
+.comment-toolbar .format-buttons {
+    display: flex; /* MENGATUR TOMBOL FORMAT HORIZONTAL */
+    flex-wrap: wrap; /* Membungkus jika tombol terlalu banyak */
+    gap: 5px; /* Jarak antar tombol format */
+}
+.comment-toolbar .format-buttons button {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #555;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.comment-toolbar .format-buttons button:hover {
+    background-color: #e9e9e9;
+    border-color: #aaa;
+}
+
+.comment-submit-btn {
+    background-color: #ffcc00; /* Warna kuning */
+    color: #333;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-submit-btn:hover {
+    background-color: #e6b800; /* Kuning lebih gelap saat hover */
+}
+
+.comment-login-options {
+    margin-top: 25px;
+    display: flex; /* MENGATUR HORIZONTAL */
+    flex-wrap: wrap; /* Pastikan membungkus jika ruang tidak cukup */
+    align-items: center;
+    gap: 20px; /* Jarak antar elemen di baris login */
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+}
+
+.comment-login-options h4 {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.comment-social-logins {
+    display: flex; /* MENGATUR ICON SOSIAL HORIZONTAL */
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.comment-social-logins a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.comment-social-logins a:hover {
+    transform: translateY(-2px);
+}
+
+/* Specific social colors (contoh) */
+.comment-social-logins .facebook { background-color: #3b5998; }
+.comment-social-logins .x { background-color: #000; }
+.comment-social-logins .google { background-color: #db4437; }
+.comment-social-logins .microsoft { background-color: #f25022; }
+.comment-social-logins .apple { background-color: #000000; }
+.comment-social-logins .whatsapp { background-color: #25D366; }
+
+
+.comment-or {
+    font-size: 0.9em;
+    color: #888;
+    flex-shrink: 0;
+}
+
+.comment-name-input {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment-name-input input[type="text"] {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9em;
+    outline: none;
+}
+
+.comment-name-input input[type="text"]:focus {
+    border-color: #005baa;
+    box-shadow: 0 0 0 2px rgba(0, 91, 170, 0.2);
+}
+
+/* Emoji Reactions */
+.reactions {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.reactions .reaction-items {
+    display: flex; /* Mengatur ikon reaksi horizontal */
+    justify-content: center;
+    gap: 15px; /* Jarak antar item reaksi */
+    flex-wrap: wrap; /* Pastikan membungkus jika ruang tidak cukup */
+}
+
+.reactions .reaction-item {
+    display: flex; /* Mengatur emoji dan label dalam item reaksi horizontal */
+    flex-direction: column; /* Mengatur emoji di atas label */
+    align-items: center;
+    margin: 0 5px; /* Kurangi margin untuk ruang lebih sempit */
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.reactions .reaction-item:hover {
+    background-color: #f0f0f0;
+}
+
+.reactions .emoji {
+    font-size: 2.5em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.reactions .label {
+    font-size: 0.85em;
+    color: #555;
+}
+
+/* TOP button */
+.top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffcc00;
+    color: #333;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1em;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+    z-index: 999;
+}
+
+.top-button:hover {
+    background-color: #e6b800;
+}
+
+/* Responsive adjustments for comment section */
+@media (max-width: 600px) {
+    .comment-toolbar {
+        flex-direction: column; /* Kembali ke kolom di layar kecil */
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .comment-toolbar .format-buttons {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .comment-toolbar .format-buttons button {
+        margin-bottom: 5px;
+    }
+    .comment-submit-btn {
+        width: 100%;
+    }
+    .comment-login-options {
+        flex-direction: column; /* Kembali ke kolom di layar kecil */
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .comment-social-logins {
+        width: 100%;
+        justify-content: center;
+    }
+    .comment-name-input {
+        width: 100%;
+    }
+    .reactions .reaction-item {
+        margin: 0 5px;
+    }
+}
+/* END: New Styles for Comment Section */
